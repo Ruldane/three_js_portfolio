@@ -1,32 +1,37 @@
-import styled from 'styled-components';
-import Contact from './components/Contact';
-import Hero from './components/Hero';
-import Who from './components/Who';
-import Works from './components/Works';
+import { BrowserRouter } from 'react-router-dom';
 
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: auto;
-  scrollbar-width: none;
-  color: white;
-  background: url('./img/bg.jpeg');
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
+import {
+  About,
+  Contact,
+  Experience,
+  Feedbacks,
+  Hero,
+  Navbar,
+  Tech,
+  Works,
+  StarsCanvas,
+} from './components';
 
-function App() {
+const App = () => {
   return (
-    <Container>
-      <Hero />
-      <Who />
-      <Works />
-      <Contact />
-    </Container>
+    <BrowserRouter>
+      <div className="relative z-0 bg-primary">
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+          <Navbar />
+          <Hero />
+        </div>
+        <About />
+        <Experience />
+        <Tech />
+        <Works />
+        {/* <Feedbacks /> */}
+        <div className="relative z-0">
+          <Contact />
+          <StarsCanvas />
+        </div>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
